@@ -1,34 +1,37 @@
 <template class="reservar">
-    <div class="reservar-heading">
-      <h1 class="reservar-title">Haz tu reserva</h1>
-      <hr class="reservar-hr" />
-      <br />
-      <div class="reservar-container">
-        <section class="reservar-section">
-          <div class="reservar-imagen">
-            <img src="../assets/img/cine.jpg" alt="" />
-          </div>
-          <div class="reservar-content">
-            <p class="reservar-info">
-              ¿Ya has comprado tu asiento?
-              <br />
-              Pincha en el botón para buscar la pelicula que deseas!
-              <br />
-            </p>
-            <a href="menu.html"
-              ><button class="reservar-button">Reservar</button></a
-            >
-          </div>
-        </section>
-      </div>
+  <div class="reservar__heading">
+    <h1 class="reservar__title">Haz tu reserva</h1>
+    <hr class="reservar__hr" />
+    <br />
+    <div class="reservar__container">
+      <section class="reservar__section">
+        <div class="reservar__imagen">
+          <img src="../assets/img/cine.jpg" alt="" />
+        </div>
+        <div class="reservar__content">
+          <p class="reservar__info">
+            ¿Ya has comprado tu asiento?
+            <br />
+            Pincha en el botón para buscar la película que deseas!
+            <br />
+          </p>
+          <a href="menu.html">
+            <button class="reservar__button">Reservar</button>
+          </a>
+        </div>
+      </section>
     </div>
+  </div>
 </template>
 
-
-
-
 <style>
-.reservar-heading {
+:root {
+  --text-color: #fff;
+  --btn-color: #ff6347;
+  --dark-color: #333;
+}
+
+.reservar__heading {
   width: 90%;
   display: flex;
   justify-content: center;
@@ -38,13 +41,14 @@
   margin: 20px auto;
 }
 
-.reservar-title {
-  font-size: 50px;
-  color: #fff;
+.reservar__title {
+  font-size: 3rem;
+  color: var(--text-color);
   margin-bottom: 25px;
   position: relative;
 }
-.reservar-title::after {
+
+.reservar__title::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -54,27 +58,27 @@
   background-color: var(--btn-color);
 }
 
-.reservar-info {
-  font-size: 18px;
+.reservar__info {
+  font-size: 1.125rem;
   color: var(--dark-color);
   font-weight: 500;
   margin-bottom: 35px;
 }
 
-.reservar-container {
+.reservar__container {
   width: 90%;
   margin: 0 auto;
   padding: 10px 20px;
 }
 
-.reservar-section {
+.reservar__section {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.reservar-imagen {
+.reservar__imagen {
   flex: 1;
   margin-right: 40px;
   overflow: hidden;
@@ -82,12 +86,14 @@
   height: 350px;
   border: 3px solid var(--text-color);
 }
-.reservar-imagen img {
+
+.reservar__imagen img {
   width: 100%;
   height: 100%;
+  object-fit: cover; /* Asegura que la imagen se recorte correctamente sin distorsión */
 }
 
-.reservar-content {
+.reservar__content {
   flex: 1;
   margin-top: 0px;
   padding-left: 2%;
@@ -96,26 +102,71 @@
   text-align: left;
 }
 
-.reservar-button {
-  background-color: #333;
+.reservar__button {
+  background-color: var(--dark-color);
   border: none;
   border-radius: 30px;
   padding: 14px 35px;
-  color: white;
-  font-size: 20px;
+  color: var(--text-color);
+  font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 30px;
   cursor: pointer;
 }
-.reservar-button:hover {
+
+.reservar__button:hover {
   background-color: var(--btn-color);
   color: #ffffff;
 }
-.reservar-button:hover::after {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  transition: all 0.35s;
+
+/* Mobile-first styles */
+@media (min-width: 768px) {
+  .reservar__title {
+    font-size: 4rem;
+  }
+
+  .reservar__info {
+    font-size: 1.25rem;
+  }
+
+  .reservar__section {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .reservar__imagen {
+    flex: 1;
+    margin-right: 2rem;
+  }
+
+  .reservar__content {
+    flex: 1;
+  }
+
+  .reservar__button {
+    font-size: 1.5rem;
+    padding: 18px 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reservar__imagen {
+    height: 200px; /* Ajuste de altura para pantallas móviles */
+  }
+
+  .reservar__section {
+    flex-direction: column; /* Apilar contenido en pantallas pequeñas */
+    align-items: center;
+  }
+
+  .reservar__content {
+    text-align: center;
+    padding: 0; /* Ajuste de padding para móviles */
+  }
+
+  .reservar__button {
+    font-size: 1rem;
+    padding: 12px 30px; /* Botón más pequeño en móvil */
+  }
 }
 </style>

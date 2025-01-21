@@ -1,21 +1,19 @@
-<script setup lang ="ts">
+<script setup lang="ts">
 document.addEventListener('DOMContentLoaded', () => {
     const slider = document.querySelector('.slider'); 
-    const slides = document.querySelectorAll('.slide'); 
-    const prevButton = document.querySelector('.slider-control.prev'); 
-    const nextButton = document.querySelector('.slider-control.next'); 
-    const navDots = document.querySelectorAll('.nav-dot'); 
+    const slides = document.querySelectorAll('.slider__slide'); 
+    const prevButton = document.querySelector('.slider__control--prev'); 
+    const nextButton = document.querySelector('.slider__control--next'); 
+    const navDots = document.querySelectorAll('.slider__nav-dot'); 
     let currentIndex = 0; 
 
     const updateSlider = () => {
         slider.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-
-        navDots.forEach(dot => dot.classList.remove('active')); 
-        navDots[currentIndex].classList.add('active'); 
+        navDots.forEach(dot => dot.classList.remove('slider__nav-dot--active')); 
+        navDots[currentIndex].classList.add('slider__nav-dot--active'); 
     };
 
- 
     prevButton.addEventListener('click', () => {
         currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1; 
         updateSlider(); 
@@ -26,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSlider(); 
     });
 
-
     navDots.forEach((dot, index) => {
         dot.addEventListener('click', (e) => {
             e.preventDefault(); 
@@ -35,119 +32,126 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
     setInterval(() => {
         nextButton.click(); 
     }, 5000);
 });
 </script>
-<template >
-  <div class="container-slider">
-    <div class="slider-wrapper">
-      <div class="slider">
-        <div class="slide" id="slide-1">
-          <img src="../assets/img/slider1.jpg" alt="Gladiator II" />
-          <div class="slide-content">
-            <h2>VENOM 3</h2>
-            <a href="#" class="buy-button">¡Compra ya tus entradas!</a>
+
+<template>
+  <div class="slider">
+    <div class="slider__wrapper">
+      <div class="slider__track">
+        <div class="slider__slide" id="slide-1">
+          <img src="../assets/img/slider1.jpg" alt="Gladiator II" class="slider__image" />
+          <div class="slider__content">
+            <h2 class="slider__content-title">VENOM 3</h2>
+            <a href="#" class="slider__buy-button">¡Compra ya tus entradas!</a>
           </div>
         </div>
-        <div class="slide" id="slide-2">
-          <img src="../assets/img/slider2.jpg" alt="Movie 2" />
-          <div class="slide-content">
-            <h2>ROBOT SALVAJE</h2>
-            <a href="#" class="buy-button">¡Compra ya tus entradas!</a>
+        <div class="slider__slide" id="slide-2">
+          <img src="../assets/img/slider2.jpg" alt="Movie 2" class="slider__image" />
+          <div class="slider__content">
+            <h2 class="slider__content-title">ROBOT SALVAJE</h2>
+            <a href="#" class="slider__buy-button">¡Compra ya tus entradas!</a>
           </div>
         </div>
-        <div class="slide" id="slide-3">
-          <img src="../assets/img/slider3.jpg" alt="Movie 3" />
-          <div class="slide-content">
-            <h2>RED ONE</h2>
-            <a href="#" class="buy-button">¡Compra ya tus entradas!</a>
+        <div class="slider__slide" id="slide-3">
+          <img src="../assets/img/slider3.jpg" alt="Movie 3" class="slider__image" />
+          <div class="slider__content">
+            <h2 class="slider__content-title">RED ONE</h2>
+            <a href="#" class="slider__buy-button">¡Compra ya tus entradas!</a>
           </div>
         </div>
       </div>
-      <button class="slider-control prev">&#8249;</button>
-      <button class="slider-control next">&#8250;</button>
-      <div class="slider-nav">
-        <a href="#slide-1" class="nav-dot active"></a>
-        <a href="#slide-2" class="nav-dot"></a>
-        <a href="#slide-3" class="nav-dot"></a>
+      <button class="slider__control slider__control--prev">&#8249;</button>
+      <button class="slider__control slider__control--next">&#8250;</button>
+      <div class="slider__nav">
+        <a href="#slide-1" class="slider__nav-dot slider__nav-dot--active"></a>
+        <a href="#slide-2" class="slider__nav-dot"></a>
+        <a href="#slide-3" class="slider__nav-dot"></a>
       </div>
     </div>
   </div>
 </template>
 
 <style>
-.container-slider {
+:root {
+  --primary-color: #0d1b2a;
+  --text-color: #fff;
+  --button-hover-bg: #fff;
+  --button-hover-color: #000;
+}
+
+.slider {
   width: 100%;
-  max-width: 80rem;
+  max-width: 100%;
   margin: 0 auto;
   position: relative;
-  background-color: #0d1b2a;
+  background-color: var(--primary-color);
   border-radius: 10px;
   overflow: hidden;
 }
 
-.slider-wrapper {
+.slider__wrapper {
   position: relative;
   overflow: hidden;
-  border-radius: 0.5rem;
 }
 
-.slider {
+.slider__track {
   display: flex;
   transition: transform 0.5s ease-in-out;
 }
 
-.slide {
+.slider__slide {
   min-width: 100%;
   position: relative;
 }
 
-.slide img {
+.slider__image {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-.slide-content {
+.slider__content {
   position: absolute;
   bottom: 10%;
   left: 10%;
-  color: #fff;
+  color: var(--text-color);
 }
 
-.slide-content h2 {
-  font-size: 2rem;
+.slider__content-title {
+  font-size: 1.5rem;
   font-weight: bold;
   margin: 0;
   text-transform: uppercase;
 }
-.buy-button {
+
+.slider__buy-button {
   display: inline-block;
   margin-top: 10px;
   padding: 10px 20px;
   background: none;
-  border: 1px solid #fff;
-  color: #fff;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s, color 0.3s;
 }
 
-.buy-button:hover {
-  background-color: #fff;
-  color: #000;
+.slider__buy-button:hover {
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-color);
 }
 
-.slider-control {
+.slider__control {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
   border: none;
-  color: #fff;
+  color: var(--text-color);
   font-size: 2rem;
   padding: 10px;
   cursor: pointer;
@@ -156,40 +160,64 @@ document.addEventListener('DOMContentLoaded', () => {
   transition: background-color 0.3s;
 }
 
-.slider-control:hover {
+.slider__control:hover {
   background-color: rgba(255, 255, 255, 0.5);
-  color: #000;
+  color: var(--button-hover-color);
 }
 
-.slider-control.prev {
+.slider__control--prev {
   left: 10px;
 }
 
-.slider-control.next {
+.slider__control--next {
   right: 10px;
 }
 
-.slider-nav {
+.slider__nav {
   display: flex;
   gap: 1rem;
   position: absolute;
   bottom: 1.25rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
 }
 
-.nav-dot {
+.slider__nav-dot {
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: var(--text-color);
   opacity: 0.75;
   transition: opacity ease 250ms;
 }
 
-.nav-dot.active,
-.nav-dot:hover {
+.slider__nav-dot--active,
+.slider__nav-dot:hover {
   opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .slider {
+    max-width: 80rem;
+  }
+
+  .slider__content-title {
+    font-size: 2rem;
+  }
+
+  .slider__buy-button {
+    padding: 15px 30px;
+    font-size: 1rem;
+  }
+
+  .slider__control {
+    font-size: 2.5rem;
+    padding: 15px;
+  }
+
+  .slider__nav-dot {
+    width: 1rem;
+    height: 1rem;
+  }
 }
 </style>

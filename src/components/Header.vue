@@ -1,49 +1,41 @@
 <script setup lang="ts">
 </script>
+
 <template>
   <div class="header">
-    <a href="" class="header-logo"
-      ><img src="@/assets/img/LogoSinFondo.png" class="header-logo-image"
-    /></a>
-    <ul class="header-navbar">
+    <a href="" class="header__logo">
+      <img src="@/assets/img/LogoSinFondo.png" class="header__logo-image" />
+    </a>
+    <ul class="header__navbar">
       <li>
-        <a
-          href=""
-          class="header-nav-item header-nav-item--active"
-          id="sectionHead"
-          >Inicio</a
-        >
+        <a href="" class="header__nav-item header__nav-item--active">Inicio</a>
       </li>
       <li>
-        <a href="" class="header-nav-item" id="sectionHead"
-          >Cartelera</a
-        >
+        <a href="" class="header__nav-item">Cartelera</a>
       </li>
       <li>
-        <a href="" class="header-nav-item" id="sectionHead"
-          >Contacto</a
-        >
+        <a href="" class="header__nav-item">Contacto</a>
       </li>
     </ul>
 
-    <div class="header-main">
-      <a href="#" class="header-ticket" id="sectionHead"
-        ><i class="ri-coupon-3-fill"></i>Entradas</a
-      >
-      <a href="#" class="header-user" id="sectionHead"
-        ><i class="ri-user-line"></i>Account</a
-      >
-      <div class="bx bx-menu" id="menu-icon"></div>
+    <div class="header__main">
+      <a href="#" class="header__ticket">
+        <i class="ri-coupon-3-fill"></i>Entradas
+      </a>
+      <a href="#" class="header__user">
+        <i class="ri-user-line"></i>Account
+      </a>
+      <div class="header__menu-icon" id="menu-icon"></div>
     </div>
   </div>
 </template>
 
 <style>
-
-.header-logo-image {
-  width: 20%;
+:root {
+  --text-color: #fff;
+  --bg-color: #000;
+  --main-color: #1e90ff;
 }
-
 
 .header {
   position: fixed;
@@ -55,26 +47,26 @@
   align-items: center;
   justify-content: space-between;
   background: var(--bg-color);
-  padding: 10px 12%;
+  padding: 1rem 5%;
   transition: all 0.5s ease;
   font-size: 1.3rem;
 }
 
-
-.header-logo {
+.header__logo {
   display: flex;
   align-items: center;
 }
 
-.header-logo-icon-image {
-  display: none;
+.header__logo-image {
+  width: 20%;
 }
 
-.header-navbar {
+.header__navbar {
   display: flex;
+  list-style: none;
 }
 
-.header-nav-item {
+.header__nav-item {
   color: var(--text-color);
   font-size: 1.2rem;
   font-weight: 500;
@@ -82,21 +74,23 @@
   margin: 0 30px;
   transition: all 0.5s ease;
 }
-.header-nav-item:hover {
+
+.header__nav-item:hover {
   color: var(--main-color);
   font-weight: bold;
 }
 
-.header-nav-item--active {
+.header__nav-item--active {
   color: var(--main-color);
 }
 
-
-.header-main {
+.header__main {
   display: flex;
   align-items: center;
 }
-.header-main a {
+
+.header__ticket,
+.header__user {
   margin-right: 25px;
   margin-left: 10px;
   font-size: 1.2rem;
@@ -105,22 +99,18 @@
   transition: all 0.5s ease;
 }
 
-.header-user {
-  display: flex;
-  align-items: center;
-}
-.header-user i {
+.header__user i {
   color: var(--main-color);
   font-size: 28px;
   margin-right: 7px;
 }
 
-.header-main a:hover {
+.header__main a:hover {
   color: var(--main-color);
   font-weight: bold;
 }
 
-#menu-icon {
+.header__menu-icon {
   font-size: 35px;
   color: var(--text-color);
   cursor: pointer;
@@ -128,89 +118,48 @@
   display: none;
 }
 
-.scroll {
-  height: 100px;
-}
-
-.landing {
-  width: 100%;
-  z-index: 1;
-}
-
-
-@media (max-width: 1280px) {
+@media (max-width: 768px) {
   .header {
-    padding: 14px 2%;
-    transition: 0.2s;
+    padding: 1rem 2%;
+    font-size: 1.1rem;
   }
-  .header-nav-item {
-    padding: 5px 0;
-    margin: 0px 20px;
-  }
-}
-@media (max-width: 1090px) {
-  #menu-icon {
-    display: block;
-  }
-  .header-navbar {
+
+  .header__navbar {
+    display: none;
     position: absolute;
     top: 100%;
     right: -100%;
-    width: 270px;
-    height: 29vh;
+    width: 100%;
+    height: 30vh;
     background: var(--text-color);
-    display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     border-radius: 10px;
     transition: all 0.5s ease;
   }
-  .header-nav-item {
-    display: block;
+
+  .header__nav-item {
     margin: 12px 0;
     padding: 0px 25px;
-    transition: all 0.5s ease;
     color: var(--bg-color);
   }
-  .header-nav-item--active {
+
+  .header__nav-item--active {
     color: var(--bg-color);
   }
-  .header-nav-item:hover {
+
+  .header__nav-item:hover {
     color: var(--bg-color);
     transform: translateY(5px);
   }
-  .header-nav-item:active {
-    color: var(--bg-color);
-  }
-  .header-navbar.open {
-    right: 2%;
-  }
-  .reservar-asientos__imagen img {
-    height: 100%;
-  }
-}
-@media (min-width: 0) {
-  .reservar-asientos__imagen {
-    height: 100%;
-  }
-}
-@media (max-width: 1591) {
-  .reservar-asientos__imagen {
-    height: 100%;
-  }
-}
-@media (max-width: 950px) {
-  .reservar-asientos__imagen {
-    display: none;
-    display: none;
-  }
-  .header__logo-image {
-    display: none;
-  }
-  .header__logo-icon-image {
-    display: flex;
-    width: 30%;
-  }
-}
 
+  .header__navbar.open {
+    right: 0;
+  }
+
+  .header__menu-icon {
+    display: block;
+  }
+}
 </style>

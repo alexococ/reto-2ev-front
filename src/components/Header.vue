@@ -2,13 +2,16 @@
 </script>
 
 <template>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
   <div class="header">
     <a href="" class="header__logo">
       <img src="@/assets/img/LogoSinFondo.png" class="header__logo-image" />
     </a>
     <ul class="header__navbar">
       <li>
-        <a href="" class="header__nav-item header__nav-item--active">Inicio</a>
+        <router-link to="/"><a href="" class="header__nav-item header__nav-item--active">Inicio</a></router-link>
+
       </li>
       <li>
         <a href="" class="header__nav-item">Cartelera</a>
@@ -31,11 +34,7 @@
 </template>
 
 <style>
-:root {
-  --text-color: #fff;
-  --bg-color: #000;
-  --main-color: #1e90ff;
-}
+
 
 .header {
   position: fixed;

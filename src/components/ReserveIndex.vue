@@ -1,7 +1,6 @@
 <template class="reservar">
   <div class="reservar__heading">
     <h1 class="reservar__title">Haz tu reserva</h1>
-    <hr class="reservar__hr" />
     <br />
     <div class="reservar__container">
       <section class="reservar__section">
@@ -25,11 +24,6 @@
 </template>
 
 <style>
-:root {
-  --text-color: #fff;
-  --btn-color: #ff6347;
-  --dark-color: #333;
-}
 
 .reservar__heading {
   width: 90%;
@@ -42,7 +36,7 @@
 }
 
 .reservar__title {
-  font-size: 3rem;
+  font-size: 10px;
   color: var(--text-color);
   margin-bottom: 25px;
   position: relative;
@@ -90,7 +84,7 @@
 .reservar__imagen img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Asegura que la imagen se recorte correctamente sin distorsión */
+  object-fit: cover; 
 }
 
 .reservar__content {
@@ -122,7 +116,7 @@
 /* Mobile-first styles */
 @media (min-width: 768px) {
   .reservar__title {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
   .reservar__info {
@@ -145,28 +139,28 @@
 
   .reservar__button {
     font-size: 1.5rem;
-    padding: 18px 45px;
+    padding: 15px 30px;
   }
 }
 
 @media (max-width: 768px) {
   .reservar__imagen {
-    height: 200px; /* Ajuste de altura para pantallas móviles */
+    height: 200px; 
   }
 
   .reservar__section {
-    flex-direction: column; /* Apilar contenido en pantallas pequeñas */
+    flex-direction: column; 
     align-items: center;
   }
 
   .reservar__content {
     text-align: center;
-    padding: 0; /* Ajuste de padding para móviles */
+    padding: 0; 
   }
 
   .reservar__button {
     font-size: 1rem;
-    padding: 12px 30px; /* Botón más pequeño en móvil */
+    padding: 12px 30px; 
   }
 }
 </style>

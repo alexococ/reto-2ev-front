@@ -34,7 +34,6 @@ import ReserveIndex from '@/components/ReserveIndex.vue'
   --btn-color: #934DEE;
 
 }
-
 body {
   background-color: #0B193B;
   font-family: "Poppins", sans-serif;
@@ -50,5 +49,4 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;
   border: 1px solid var(--dark-color);
 }
-
 </style>

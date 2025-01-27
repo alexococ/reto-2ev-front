@@ -76,12 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </template>
 
 <style>
-:root {
-  --primary-color: #0d1b2a;
-  --text-color: #fff;
-  --button-hover-bg: #fff;
-  --button-hover-color: #000;
-}
 
 .slider {
   width: 100%;

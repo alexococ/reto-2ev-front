@@ -1,8 +1,10 @@
 <script setup lang="ts">
-    import { RouterLink } from 'vue-router'
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
   <footer class="footer">
     <div class="footer__column footer__column--socials">
       <h3 class="footer__title">Redes sociales</h3>
@@ -27,16 +29,9 @@
 </template>
 
 <style>
-:root {
-  --text-color: #fff;
-  --btn-color: #ff6347;
-  --main-color: #1e90ff;
-}
-
-/* Mobile First */
 .footer {
   width: 100%;
-  padding: 2rem 1rem;
+  padding: 20px;
   background: #000;
   color: var(--text-color);
   display: flex;
@@ -116,13 +111,14 @@
 @media (min-width: 768px) {
   .footer {
     flex-direction: row;
-    justify-content: space-evenly; 
-    padding: 3rem 4rem;
+    justify-content: space-around;
+    padding: 2rem 4rem;
+    text-align: center;
   }
 
   .footer__column {
-    text-align: left;
-    max-width: 300px; 
+
+    max-width: 300px;
   }
 
   .footer__icon {

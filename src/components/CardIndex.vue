@@ -41,11 +41,6 @@
 </template>
 
 <style>
-:root {
-  --text-color: #333;
-  --dark-color: #444;
-  --btn-color: #555;
-}
 
 .movies {
   padding: 1rem;

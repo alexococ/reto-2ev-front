@@ -16,9 +16,13 @@
       <li>
         <a href="" class="header__nav-item">Cartelera</a>
       </li>
-      <li>
-        <a href="" class="header__nav-item">Contacto</a>
-      </li>
+
+      <router-link to="/contact">
+        <li>
+          <a href="" class="header__nav-item">Contacto</a>
+        </li>
+      </router-link>
+
     </ul>
 
     <div class="header__main">
@@ -34,8 +38,6 @@
 </template>
 
 <style>
-
-
 .header {
   position: fixed;
   width: 100%;
